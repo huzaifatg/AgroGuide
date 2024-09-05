@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    text-decoration: none;
+    border-bottom: 3px solid #FFD700; /* Attractive underline for active page */
+}
+
+main {
+    flex: 1; /* Makes the main content area grow to fill the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto; /* Ensures the footer stays at the bottom */
+}
+
+/* Specific Page Styles */
+#intro, #about, #weather, #blog, #contact, #gallery {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.crop-card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.crop-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: calc(33.333% - 40px);
+    margin: 10px;
+}
+
+.crop-card h3 {
+    margin: 10px 0;
+}
+
+.crop-card .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.crop-card .button:hover {
+    background: #45a049;
+}
+
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Weather Card Styles */
+#weather-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.weather-card h2 {
+    margin: 0 0 20px;
+}
+
+.weather-card p {
+    margin: 10px 0;
+}
+
+#weather-details, #crop-suggestions {
+    margin-top: 15px;
+}
