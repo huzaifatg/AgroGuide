@@ -20,9 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const weatherDetails = document.getElementById('weather-details');
         const { main, weather } = data;
         weatherDetails.innerHTML = `
-            <p>Temperature: ${main.temp}°C</p>
-            <p>Humidity: ${main.humidity}%</p>
-            <p>Condition: ${weather[0].description}</p>
+            <div class="weather-card">
+                <h3>Current Weather</h3>
+                <p>Temperature: <strong>${main.temp}°C</strong></p>
+                <p>Humidity: <strong>${main.humidity}%</strong></p>
+                <p>Condition: <strong>${weather[0].description}</strong></p>
+            </div>
         `;
     }
 
@@ -32,13 +35,36 @@ document.addEventListener('DOMContentLoaded', () => {
         let crops = [];
 
         if (main.temp > 25) {
-            crops = ['Rice', 'Cotton', 'Maize'];
+            crops = [
+                { name: 'Rice', description: 'A staple food for more than half of the world\'s population.' },
+                { name: 'Cotton', description: 'Used to make fabrics and textiles.' },
+                { name: 'Maize', description: 'Also known as corn, it is a versatile crop used for food and feed.' },
+                { name: 'Sugarcane', description: 'A major source of sugar production.' },
+                { name: 'Tropical fruits', description: 'Such as mangoes, bananas, and pineapples thrive in warm conditions.' }
+            ];
         } else if (main.temp > 15) {
-            crops = ['Wheat', 'Barley', 'Peas'];
+            crops = [
+                { name: 'Wheat', description: 'A primary crop for bread and pasta.' },
+                { name: 'Barley', description: 'Used in brewing and animal feed.' },
+                { name: 'Peas', description: 'A protein-rich legume.' },
+                { name: 'Rye', description: 'Used for bread, whiskey, and animal fodder.' },
+                { name: 'Canola', description: 'Used for oil and animal feed.' }
+            ];
         } else {
-            crops = ['Oats', 'Carrots', 'Potatoes'];
+            crops = [
+                { name: 'Oats', description: 'Great for breakfast cereals and animal feed.' },
+                { name: 'Carrots', description: 'Rich in vitamins and versatile for cooking.' },
+                { name: 'Potatoes', description: 'A staple vegetable used worldwide.' },
+                { name: 'Cabbage', description: 'A cool-weather crop great for salads and cooking.' },
+                { name: 'Garlic', description: 'A flavorful addition to many dishes and beneficial for health.' }
+            ];
         }
 
-        cropSuggestions.innerHTML = `<ul>${crops.map(crop => `<li>${crop}</li>`).join('')}</ul>`;
+        cropSuggestions.innerHTML = `
+            <h3>Suggested Crops</h3>
+            <ul class="crop-list">
+                ${crops.map(crop => `<li><strong>${crop.name}:</strong> ${crop.description}</li>`).join('')}
+            </ul>
+        `;
     }
 });
