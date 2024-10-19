@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const city = 'PUNE'; // Replace with your actual city
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
 
+    const weatherDetails = document.getElementById('weather-details');
+    const cropSuggestions = document.getElementById('crop-suggestions');
+
+    // Initial loading message
+    weatherDetails.innerHTML = 'Loading weather data... Suggestions will appear here...';
+
     // Fetch weather data from the OpenWeather API
     fetchWeatherData(weatherApiUrl)
         .then(data => {
@@ -28,8 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to display weather data on the page
     function displayWeatherData(data) {
-        const weatherDetails = document.getElementById('weather-details');
         const { main, weather } = data;
+        const weatherCondition = weather[0].main; // Get the main weather condition
+
+        // Update the weather icon based on condition
+        updateWeatherIcon(weatherCondition);
 
         weatherDetails.innerHTML = `
             <div class="weather-card">
@@ -43,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to suggest crops based on weather conditions
     function suggestCrops(data) {
-        const cropSuggestions = document.getElementById('crop-suggestions');
         const { main } = data;
         let crops = [];
 
@@ -95,5 +103,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return [
             { name: 'Potatoes', description: 'Thrives in cooler climates.' }
         ];
+    }
+
+    // Function to update the weather icon based on condition
+    function updateWeatherIcon(condition) {
+        const weatherCard = document.querySelector('.weather-card');
+        
+        // Remove previous weather classes
+        weatherCard.classList.remove('weather-sunny', 'weather-cloudy', 'weather-rainy', 'weather-storm', 'weather-snow', 'weather-windy');
+
+        // Add class based on weather condition
+        if (condition === 'Clear') {
+            weatherCard.classList.add('weather-sunny');
+        } else if (condition === 'Clouds') {
+            weatherCard.classList.add('weather-cloudy');
+        } else if (condition === 'Rain') {
+            weatherCard.classList.add('weather-rainy');
+        } else if (condition === 'Thunderstorm') {
+            weatherCard.classList.add('weather-storm');
+        } else if (condition === 'Snow') {
+            weatherCard.classList.add('weather-snow');
+        } else if (condition === 'Wind') {
+            weatherCard.classList.add('weather-windy');
+        }
     }
 });
