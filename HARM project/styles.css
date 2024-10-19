@@ -1,317 +1,245 @@
-/* General Styles */
+/* General styling for body */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f7fafc, #edf2f7); /* Subtle background gradient */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
-/* Header Styles */
+/* Header styles */
 header {
-    background: linear-gradient(90deg, #4CAF50, #38a169); /* Gradient header for a modern look */
-    color: white;
-    padding: 25px;
-    text-align: center;
-    font-size: 2em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    animation: fadeInDown 1s ease-in-out;
+  width: 100%;
+  background-color: #4CAF50;
+  padding: 20px;
+  text-align: center;
 }
 
-@keyframes fadeInDown {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+header h1 {
+  margin: 0;
+  color: white;
 }
 
-/* Navigation Menu */
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    transition: background 0.3s ease-in-out;
+  list-style-type: none;
+  padding: 0;
 }
 
 nav ul li {
-    margin: 0 20px;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 15px 20px;
-    font-size: 1.2em;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease-in-out;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
 nav ul li a:hover {
-    background-color: #4CAF50;
-    color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: underline;
 }
 
-nav ul li a.active {
-    border-bottom: 3px solid #FFD700;
+/* Hero section */
+.hero {
+  background-color: #e0f7fa;
+  padding: 50px;
+  text-align: center;
+  width: 100%;
 }
 
-/* Main Content */
-main {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 1.5s ease-in-out;
+.hero h2 {
+  margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.hero p {
+  font-size: 18px;
 }
 
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-/* Crop Details Section */
-#crop-details {
-    width: 80%;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.8); /* Glassmorphism */
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+.cta-button:hover {
+  background-color: #45a049;
 }
 
-#crop-details:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
 
-#crop-details h1 {
-    color: #38a169;
-    margin-bottom: 20px;
-    font-size: 2em;
-    animation: textGlow 1.5s infinite alternate;
-}
-
-@keyframes textGlow {
-    0% {
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-    }
-    100% {
-        text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
-    }
-}
-
-/* Disease Section */
-.disease-section {
-    margin-top: 30px;
-}
-
-.disease-block {
-    background-color: #f9f9f9;
-    border-left: 5px solid;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.disease-block:hover {
-    transform: translateX(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.disease-block h3 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-}
-
-.disease-block p {
-    color: #666;
-}
-
-/* Image Placeholder Styling */
-.image-space {
-    background-color: #e0e0e0;
-    height: 200px;
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: 2px solid #FFD700;
-    overflow: hidden;
-}
-
-.image-space img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Crop Category */
+/* Crop Category Cards */
 .crop-category {
-    background-color: white;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 20px 0;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: all 0.3s ease;
+  background-color: #eaf4ea;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
 }
 
-.crop-category:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.crop-category a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.crop-category h2 {
-    color: #4CAF50;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-}
-
-/* Crop Cards */
 .crop-card-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .crop-card {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 25%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.crop-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  background-color: #EAF4EA;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
 }
 
 .crop-card h3 {
-    font-size: 1.4em;
-    margin: 10px 0;
-    color: #333;
+  margin: 60px 0 10px;
+  font-size: 20px;
+  color: #4CAF50;
 }
 
-/* Weather Card */
-.weather-card {
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 30px 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 85%;
-    max-width: 600px;
-    position: relative;
-    text-align: center;
-    transition: all 0.3s ease;
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+} /* Suggested Crops Styles */
+#suggested-crops {
+    margin-top: 40px;
 }
 
-.weather-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* Suggested Crop Section */
-#crop-suggestions {
+.crop-card-container {
+    display: flex;
+    justify-content: space-around;
     margin-top: 20px;
 }
 
-.crop-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.crop-list li {
-    background-color: #e0f7fa;
+.crop-card {
+    background-color: #f9f9f9;
     border-radius: 10px;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.crop-list li:hover {
-    background-color: #b2ebf2;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    transform: translateX(10px);
-    cursor: pointer;
+.crop-card:hover {
+    transform: scale(1.05);
 }
 
-.crop-list li strong {
-    margin-right: 5px;
-    font-size: 1em;
-    color: #333;
+/* Weather Page Styles */
+.weather-card {
+  background: linear-gradient(135deg, #A8E0A6, #77BF6B);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .weather-card, #crop-details {
-        width: 95%;
-    }
+.weather-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
 
-    nav ul {
-        flex-direction: column;
-        padding: 0;
-    }
+.forecast-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 
-    nav ul li {
-        margin: 10px 0;
-    }
+.forecast-day {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
 
-    .crop-card {
-        width: 90%;
-    }
+.forecast-day:hover {
+  transform: scale(1.05);
+}
+
+/* Additional styling for icons */
+.weather-icon {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+
+/* Testimonials */
+.testimonials {
+  background-color: #d8e8d4;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+}
+
+.testimonial {
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.testimonial cite {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+/* Styling for upload form */
+#upload {
+  padding: 50px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+#upload h2 {
+  color: #4CAF50;
+}
+
+form {
+  margin: 20px auto;
+  width: 50%;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 
